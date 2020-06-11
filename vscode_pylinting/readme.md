@@ -3,11 +3,16 @@
 ## TLDR
 Python virtual envirnments should only contain the modules needed to run your code. They should not contain any modules required to write the code, such as linting modules.
 ### Quck Steps
-1. add **pylint**'s path to your global **settings.json** file
-```json
-"python.linting.pylintPath": "~/.local/bin/pylint"
+1.  display **pylint**'s path
 ```
-2. add the following **pylintArgs** to your workspace's **setting.json** file
+which pylint
+```
+
+2. add **pylint**'s path to your global **settings.json** file
+```json
+"python.linting.pylintPath": "path/displayed/from/which/pylint"
+```
+3. add the following **pylintArgs** to your workspace's **setting.json** file
 ```json
 "python.linting.pylintArgs": [
   "--disable=all",

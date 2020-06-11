@@ -1,8 +1,8 @@
-# Global Python Linting in VSCode With Virtual Environments
+# Linting in VSCode With Virtual Environments
 
 ## TLDR
 Python virtual envirnments should only contain the modules needed to run your code. They should not contain any modules required to write the code, such as linting modules.
-#### Quck Steps
+### Quck Steps
 1. add **pylint**'s path to your global **settings.json** file
 ```json
 "python.linting.pylintPath": "~/.local/bin/pylint"
@@ -17,17 +17,17 @@ Python virtual envirnments should only contain the modules needed to run your co
     ]
 ```
 
-## What's Going on Here?
-VSCode utilizes python modules to lint python files. In this instructional, I'm using the **pylint** package. If you don't already have **pylint** installed along with it's dependences VSCode will provide a popup asking if you to install one as soon as you open a python file. I don't have **django** installed globally. Notice how the `import django` statement isn't complaining? That's because the linting package isn't installed. Let's take care of that.
+## Why This Writeup?
+VSCode utilizes python modules to lint python files. In this writeup, I'm using the **pylint** package. If you don't already have **pylint** installed along with it's dependences VSCode will provide a popup asking you to install one as soon as you open a python file. I don't have **django** installed globally. Notice the `import django` statement isn't complaining. That's because the linting package isn't installed. Let's take care of that.
 ![](images/1.png)<br>
 
 The install add's the following modules to your global envirnment:
 **astroid**, **isort**, **lazy**, **mccabe**, **pylint**, **six**, **toml**, **typed**, **wrapt**
-Now that pylint is installed, the linting starts to work now VSCode is complaining about django missing
+Now that pylint is installed, the linting starts to work and VSCode is complaining about **django** missing
 
 ![](images/2.png)<br>
 You are now set up for python linting as long as you contiue using your global python envirnment. However, once you switch your workspace over to a virtual envirnment (venv) things get a little tricky.  <br>
-Notice how VSCode is no longer compaling about django even though it's not installed When you start a new a venv, you no longer have access the your global's **pylint** package. By default, VSCode will again ask if you'd like to install **pylint** and it's dependencies. 
+Notice how VSCode is no longer complaining about **django** even though it's not installed. When you start a new a venv, you no longer have access the your global's **pylint** package. By default, VSCode will again ask if you'd like to install **pylint** and it's dependencies. 
 ![](images/3.png)<br>
 
 Python virtual envirnments should only contain the modules needed to run your code. They should not contain any modules required to write the code, such as linting modules. This is so when you ship off your code you can do a simple `pip freeze` and it's output is __only__ the required modules.

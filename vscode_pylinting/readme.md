@@ -14,7 +14,7 @@ Python virtual envirnments should only contain the modules needed to run your co
   "--enable=F,E,unreachable,duplicate-key,unnecessary-semicolon,global-variable-not-assigned,unused-variable,binary-op-exception,bad-format-string,anomalous-backslash-in-string,bad-open-mode",
   "--init-hook",
   "import sys; sys.path.append('venv/lib/python3.7/site-packages')"
-    ]
+]
 ```
 
 ## Why This Writeup?
@@ -46,7 +46,7 @@ The pylint file from `~/.local/bin/` is an executable which VSCode calls. And th
 "python.linting.pylintArgs": [
   "--init-hook",
   "import sys; sys.path.append('venv/lib/python3.7/site-packages')"
-    ]
+]
 ```
 It looks like we made things worse! Now VSCode is even complaining about **sys** not existing.
 ![](images/6a.png)<br>
@@ -59,7 +59,7 @@ Things look like they got worse because **pylint** is no longer outputing a resp
   "--enable=F,E,unreachable,duplicate-key,unnecessary-semicolon,global-variable-not-assigned,unused-variable,binary-op-exception,bad-format-string,anomalous-backslash-in-string,bad-open-mode",
   "--init-hook",
   "import sys; sys.path.append('venv/lib/python3.7/site-packages')"
-    ]
+]
 ```
 Finally, we get exactly what we were looking for. We have global linting in a venv without mudding up our venv's installed modules
 ![](images/7.png)
